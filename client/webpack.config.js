@@ -19,6 +19,10 @@ module.exports = () => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+    devServer: {
+      inline: false,
+      contentBase: "./dist",
+  },
     plugins: [
       //FILL IN
       //Added and configured workbox plugins for service worker and manifest.json file
