@@ -1,11 +1,13 @@
 const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
+
+//added StaleWhileRevalidate
 const { CacheFirst, StaleWhileRevalidate } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
 const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
 const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
-//IN DEVTOOLS, it says my Service Workers are redundant
+//IN DEVTOOLS, it says my Service Workers are redundant - fixed
 
 precacheAndRoute(self.__WB_MANIFEST);
 
@@ -31,7 +33,7 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 // TODO: Implement asset caching
 //FILL IN
 
-//MAY BE WRONG - Got this code from the student project - 
+// Got code from the student project - 
 registerRoute( 
   
   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
