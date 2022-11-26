@@ -18,7 +18,10 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      publicPath: '/'
     },
+
+    //Added this to try to fix the running issue
     devServer: {
       inline: false,
       contentBase: "./dist",
@@ -63,6 +66,7 @@ module.exports = () => {
     ],
 
     module: {
+
       rules: [
         //FILL IN
         //Added CSS loaders and babel
@@ -75,7 +79,7 @@ module.exports = () => {
             test: /\.m?js$/,
             exclude: /node_modules/,
             use: {
-              loader: 'babel-loader',
+            loader: 'babel-loader',
               options: {
                 presets: ['@babel/preset-env'],
                 plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
