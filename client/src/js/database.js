@@ -16,7 +16,7 @@ const initdb = async () =>
 //replace console.error with actual function
 
 
-export const putDb = async (content) => {
+export const putDb = async (id) => {
 
   console.log('put to database');
 
@@ -27,11 +27,10 @@ export const putDb = async (content) => {
   const store = tx.objectStore('jate');
 
   //THIS MAY BE WRONG - will probably need the fields and a different method - not .update()
-  const request = store.put({ id: 1, value: content }); 
+  const request = store.put({ id: 1, value: id });
 
   const result = await request;
-  console.log('result.value', result);
-  return result;
+  console.log('🚀 - data saved to the database', result.value);
 
 }
 
@@ -43,18 +42,16 @@ export const getDb = async () => {
 
   const jateDb = await openDB('jate', 1);
 
-  //changed to readonly
-
   const tx = jateDb.transaction('jate', 'readwrite');
 
   const store = tx.objectStore('jate');
 
-  const request = store.getAll();
+  const request = store.get(1);
 
   const result = await request;
 
   console.log('result.value', result);
-  return result;
+  return result?.value;
 
 
 }
