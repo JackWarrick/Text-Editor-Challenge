@@ -43,6 +43,8 @@ export const getDb = async () => {
 
   const jateDb = await openDB('jate', 1);
 
+  //changed to readonly
+
   const tx = jateDb.transaction('jate', 'readwrite');
 
   const store = tx.objectStore('jate');

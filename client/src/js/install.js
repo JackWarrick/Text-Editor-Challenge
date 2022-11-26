@@ -26,7 +26,8 @@ if (!promptEvent){
 
 promptEvent.prompt();
 
-window.deferredPrompt = null('hidden', true);
+window.deferredPrompt = null;
+butInstall.classList.toggle('hidden', true);
 
 });
 
