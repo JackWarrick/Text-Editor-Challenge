@@ -29,7 +29,7 @@ module.exports = () => {
     plugins: [
       //FILL IN
       //Added and configured workbox plugins for service worker and manifest.json file
-      [
+      
         // Generates html file and injects bundles. 
         new HtmlWebpackPlugin({
           template: './index.html',
@@ -46,8 +46,8 @@ module.exports = () => {
         new WebpackPwaManifest({
           fingerprints: false,
           inject: true,
-          name: 'Jate',
-          short_name: 'Jate',
+          name: 'Just Another Text Editor',
+          short_name: 'JATE',
           description: 'Text editor',
           background_color: '#225ca3',
           theme_color: '#225ca3',
@@ -63,11 +63,9 @@ module.exports = () => {
         }),
       ],
 
-    ],
-
     module: {
 
-      rules: [
+      rules: 
         //FILL IN
         //Added CSS loaders and babel
         [
@@ -88,7 +86,6 @@ module.exports = () => {
           },
         ],
         
-      ]
 
       
     },

@@ -27,7 +27,7 @@ export const putDb = async (id) => {
   const store = tx.objectStore('jate');
 
   //THIS MAY BE WRONG - will probably need the fields and a different method - not .update()
-  const request = store.update(id);
+  const request = store.put(id);
 
   const result = await request;
   console.log('result.value', result);
