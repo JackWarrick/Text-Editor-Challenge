@@ -16,7 +16,7 @@ const initdb = async () =>
 //replace console.error with actual function
 
 
-export const putDb = async (content) => {
+export const putDb = async (id) => {
 
   console.log('put to database');
 
@@ -26,8 +26,8 @@ export const putDb = async (content) => {
 
   const store = tx.objectStore('jate');
 
-  //THIS IS NOW RIGHT - ORIGINALLY didn't have content parameter included
-  const request = store.put({ id: 1, value: content });
+  //THIS IS NOW RIGHT - ORIGINALLY didn't have content parameter included - need to have id as peramater
+  const request = store.put({ id: 1, value: id });
 
   const result = await request;
   console.log('🚀 - data saved to the database', result.value);
